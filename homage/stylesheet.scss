@@ -1,0 +1,508 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+// RESET STARTS HERE
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// RESET ENDS HERE
+
+@font-face {
+  font-family: "AudiType-Normal";
+  src: url("/AudiType-Normal.woff");
+}
+
+@font-face {
+  font-family: "AudiType-ExtendedNormal";
+  src: url("/AudiType-ExtendedNormal.woff");
+}
+
+@font-face {
+  font-family: "AudiType-WideNormal";
+  src: url("/AudiType-WideNormal.woff2");
+}
+
+@font-face {
+  font-family: "AudiType-VF";
+  src: url("/AudiTypeVF.woff2");
+}
+
+@font-face {
+  font-family: "audi-storyboard-iconography";
+  src: url("/audi-storyboard-iconography.woff");
+}
+
+@font-face {
+  font-family: "app-iconography";
+  src: url("/audi-storyboard-iconography.woff");
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@mixin button-style-white {
+  border: 1px solid;
+  border-color: black;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-family: "AudiType-Normal";
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@mixin button-style-black {
+  border: 1px solid;
+  border-color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-family: "AudiType-Normal";
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@mixin button-style-grey {
+  border: 1px solid;
+  border-color: rgb(59, 59, 59);
+  background-color: rgb(59, 59, 59);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-family: "AudiType-Normal";
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
+  font-family: "AudiType-WideNormal";
+  font-size: 1.8rem;
+
+  header {
+    background-color: rgb(255, 255, 255);
+    nav {
+      height: 72px;
+      display: flex;
+      background-color: rgb(255, 255, 255);
+      position: relative;
+      align-items: center;
+      .audi-logo-header-image {
+        width: 74px;
+        height: 40px;
+        background-color: rgb(255, 255, 255);
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        margin-bottom: none;
+        padding: none;
+      }
+
+      #toggle {
+        display: none;
+      }
+
+      #toggle:checked ~ .audi-logo-header-image {
+        display: none;
+      }
+
+      .nav-menu-container {
+        display: none;
+      }
+
+      .burger-menu {
+        margin-left: 30px;
+      }
+
+      #toggle:checked ~ .nav-menu-container {
+        display: grid;
+        background-color: rgb(255, 255, 255);
+        grid-template-columns: max-content min-content max-content;
+        grid-template-rows: max-content;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        max-width: 100%;
+        top: 72px;
+        left: 0;
+        .nav-menu {
+          grid-area: 1 / 1 / 1 / 2;
+        }
+        a {
+          text-decoration: none;
+          color: grey;
+        }
+        .nav-menu > li {
+          padding: 20px;
+          padding-left: 30px;
+        }
+        .nav-menu li > ul {
+          display: none;
+        }
+
+        .search-box {
+          background-color: rgb(255, 255, 255);
+          position: absolute;
+          justify-self: flex-end;
+          grid-area: 1 / 3 / 1 / 5;
+          padding-right: 20px;
+          transform: translateY(-46px);
+        }
+      }
+    }
+    .e-tron-header-image {
+      width: 100%;
+      height: auto;
+    }
+  }
+  main {
+    h2,
+    p,
+    img,
+    ul {
+      margin-top: 20px;
+    }
+
+    h1,
+    h2 {
+      font-weight: bolder;
+    }
+
+    .e-tron-offer-inner-container {
+      margin-left: 20px;
+      margin-right: 20px;
+      h1 {
+        margin-top: 20px;
+      }
+    }
+    .e-tron-offer-buttons {
+      display: flex;
+      flex-direction: column;
+      .latest-electric-offers-button {
+        @include button-style-black;
+        margin-top: 20px;
+      }
+      .audi-electric-car-range-button {
+        @include button-style-white;
+        margin-bottom: 20px;
+      }
+    }
+
+    .available-cars-container {
+      background-color: rgb(59, 59, 59);
+      padding-top: 5px;
+      .available-cars-inner-container {
+        margin-left: 20px;
+        margin-right: 20px;
+        color: rgb(255, 255, 255);
+        .available-cars-h2 {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        .new-used-cars-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          .new-cars-button,
+          .used-cars-button {
+            @include button-style-grey;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+
+    .explore-book-locate-tiles-container {
+      display: grid;
+      grid-template-columns: 20px 1fr 20px;
+      grid-template-rows: 1fr 1fr 1fr;
+      .tile-1 {
+        cursor: pointer;
+        grid-area: 1 / 2 / 1 / 3;
+        .explore-range {
+          width: 100%;
+        }
+      }
+      .tile-2 {
+        cursor: pointer;
+        grid-area: 2 / 2 / 2 / 3;
+        .book-tile {
+          width: 100%;
+        }
+      }
+      .tile-3 {
+        cursor: pointer;
+        grid-area: 3 / 2 / 3 / 3;
+        .locate-tile {
+          width: 100%;
+        }
+      }
+    }
+
+    .discover-q8-e-tron-container {
+      .e-tron-building-image-container {
+        display: grid;
+        grid-template-columns: 20px 1fr 20px;
+        grid-template-rows: 1fr;
+        .discover-q8-e-tron-image {
+          width: 100%;
+          grid-area: 1 / 2 / 1 / 3;
+        }
+      }
+      .discover-q8-e-tron-text-container {
+        margin-left: 50px;
+        margin-right: 50px;
+        .discover-q8-e-tron-button {
+          @include button-style-white;
+          width: 100%;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .used-cars-container {
+      .used-cars-image-container {
+        display: grid;
+        grid-template-columns: 20px 1fr 20px;
+        grid-template-rows: 1fr;
+        .used-cars-image {
+          width: 100%;
+          grid-area: 1 / 2 / 1 / 3;
+        }
+      }
+      .used-cars-text-container {
+        margin-left: 50px;
+        margin-right: 50px;
+        ul {
+          margin-left: 6px;
+        }
+        .used-cars-asterix {
+          font-size: small;
+        }
+        .used-cars-learn-more-button {
+          @include button-style-white;
+          width: 100%;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .finance-your-audi-container {
+      .finance-your-audi-text-container {
+        h2,
+        p {
+          text-align: center;
+          margin-left: 40px;
+          margin-right: 40px;
+        }
+      }
+      .finance-your-audi-buttons-container {
+        display: grid;
+        grid-template-columns: 100px 1fr 100px;
+        grid-template-rows: 1fr 1fr;
+        margin-top: 20px;
+        .new-car-finance-button {
+          grid-area: 1 / 2 / 1 / 3;
+          @include button-style-black;
+        }
+        .used-car-finance-button {
+          grid-area: 2 / 2 / 2 / 3;
+          @include button-style-white();
+        }
+      }
+    }
+
+    .jorja-smith-container {
+      .jorja-smith-image-container {
+        display: grid;
+        grid-template-columns: 20px 1fr 20px;
+        grid-template-rows: 1fr;
+        .jorja-smith-image {
+          width: 100%;
+          grid-area: 1 / 2 / 1 / 3;
+        }
+      }
+      .jorja-smith-text-container {
+        margin-left: 50px;
+        margin-right: 50px;
+        .jorja-smith-learn-more-button {
+          @include button-style-white;
+          width: 100%;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .latest-updates-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10px;
+      margin-right: 10px;
+      .latest-updates-text-container {
+        h2,
+        p {
+          text-align: center;
+        }
+      }
+      .latest-updates-subscribe-button {
+        @include button-style-white;
+        border: none;
+        justify-self: center;
+        width: 75%;
+        margin-top: 20px;
+      }
+      .latest-updates-view-more-button {
+        @include button-style-white;
+        justify-self: center;
+        width: 100%;
+      }
+    }
+
+    .terms-conditions-container {
+      font-size: 14px;
+      margin-left: 20px;
+      margin-right: 20px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+      p {
+        line-height: 17px;
+      }
+    }
+  }
+}
